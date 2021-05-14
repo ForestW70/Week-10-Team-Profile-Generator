@@ -6,9 +6,9 @@ const Engineer = require("./lib/engineerClass");
 const Intern = require('./lib/internClass');
 
 let frends = []
-let fileName = "";
-let workerNumber = 1;
-let internNumber = 1;
+// let fileName = "";
+// let workerNumber = 1;
+// let internNumber = 1;
 
 const startBuild = () => {
     inquirer
@@ -37,7 +37,7 @@ const startBuild = () => {
             fileName = `${data.headName}s-Team.md`;
             
             let bossMan = new Mgmt(data.headName, data.headId, data.headEmail, data.officeNumber);
-            bossMan = bossMan.creteCard();
+            bossMan = bossMan.createCard();
             frends.push(bossMan);
 
 
@@ -94,7 +94,7 @@ const addEngineer = () => {
             },
         ]).then(data => {
             let engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGit);
-            engineer = engineer.creteCard();
+            engineer = engineer.createCard();
             frends.push(engineer);
 
             
@@ -169,8 +169,8 @@ const wrapUp = () => {
                             <meta charset="UTF-8">
                             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <link rel="stylesheet" href="./assets/css/reset.css">
-                            <link rel="stylesheet" href="./assets/css/styles.css">
+                            <link rel="stylesheet" href="./css/reset.css">
+                            <link rel="stylesheet" href="./css/styles.css">
                             <link rel="icon" href=''>
                             <title>Team Generator</title>
                         </head>
