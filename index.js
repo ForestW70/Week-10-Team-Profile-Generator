@@ -185,7 +185,7 @@ const wrapUp = () => {
 
 
                         fs.appendFile('./dist/newTeam.html', html, err => {
-                            err ? console.log(new Error(err)) : console.log('Created!');
+                            err ? console.log(new Error(err)) : console.log('Document created!');
                         })
                         return;
                     })
