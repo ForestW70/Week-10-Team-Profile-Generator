@@ -15,7 +15,7 @@ const startBuild = () => {
         .prompt([
             {
                 type: 'input',
-                message: 'Welcome team manager! Please enter your first and last name.', 
+                message: 'Welcome team manager! Please enter your first and last name.',
                 name: 'headName'
             },
             {
@@ -32,10 +32,10 @@ const startBuild = () => {
                 type: 'number',
                 message: 'Please enter your office number',
                 name: 'officeNumber'
-            }            
+            }
         ]).then(data => {
             fileName = `${data.headName}s-Team.md`;
-            
+
             let bossMan = new Mgmt(data.headName, data.headId, data.headEmail, data.officeNumber);
             bossMan = bossMan.createCard();
             frends.push(bossMan);
@@ -59,9 +59,9 @@ const pathFinder = () => {
                 ]
             }
         ).then(data => {
-            if(data.path == 'Add an engineer') {
+            if (data.path == 'Add an engineer') {
                 addEngineer();
-            } else if(data.path == 'Add an intern') {
+            } else if (data.path == 'Add an intern') {
                 addIntern();
             } else {
                 wrapUp();
@@ -97,7 +97,7 @@ const addEngineer = () => {
             engineer = engineer.createCard();
             frends.push(engineer);
 
-            
+
             pathFinder();
         })
 }
@@ -129,7 +129,7 @@ const addIntern = () => {
             let intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
             intern = intern.createCard();
             frends.push(intern);
-            
+
             pathFinder();
         })
 }
@@ -143,7 +143,7 @@ const wrapUp = () => {
                 name: 'isReady'
             },
         ]).then(data => {
-            if(data.isReady) {
+            if (data.isReady) {
                 inquirer
                     .prompt(
                         {
@@ -171,16 +171,18 @@ const wrapUp = () => {
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                             <link rel="stylesheet" href="./css/reset.css">
                             <link rel="stylesheet" href="./css/styles.css">
-                            <link rel="icon" href=''>
+                            <link rel="icon" href='../assets/icon.jpeg'>
                             <title>Team Generator</title>
                         </head>
                         <body class="${data.colorTheme}">
-                        <h1>Welcome! here is your new team.</h1>
-                        <div id="cardHolder">${teamCards}</div>
+                        <h1>Welcome! Here is your new team.</h1>
+                        <div class="card-holder">
+                        ${teamCards}
+                        </div>
                         </body>
                         </html>
                         `
-                        
+
 
                         fs.appendFile('./dist/newTeam.html', html, err => {
                             err ? console.log(new Error(err)) : console.log('Created!');
