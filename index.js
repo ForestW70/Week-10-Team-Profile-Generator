@@ -1,12 +1,16 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { generate } = require('rxjs');
 
-const fileName;
+const Mgmt = require("./lib/mgmtClass");
+const Engineer = require("./lib/engineerClass");
+const Intern = require('./lib/internClass');
+
+let frends = []
+let fileName = "";
 let workerNumber = 1;
 let internNumber = 1;
 
-cosnt startBuild = () => {
+const startBuild = () => {
     inquirer
         .prompt([
             {
@@ -30,10 +34,13 @@ cosnt startBuild = () => {
                 name: 'officeNumber'
             }            
         ]).then(data => {
-            fileName = `${data.headName}.json`;
-            fs.writeFile(fileName, data, err => {
-                err ? console.log(new Error(err)) : console.log('Thank you!, your information has been logged!');
-            })
+            fileName = `${data.headName}s-Team.md`;
+            
+            let bossMan = new Mgmt(data.headName, data.headId, data.headEmail, data.officeNumber);
+            bossMan = bossMan.creteCard();
+            frends.push(bossMan);
+
+
             pathFinder();
         })
 }
@@ -68,28 +75,29 @@ const addEngineer = () => {
             {
                 type: 'input',
                 message: "Please enter your engineer's name.",
-                name: `engineer${workerNumber}Name`
+                name: `engineerName`
             },
             {
                 type: 'input',
                 message: "Please enter your engineer's ID.",
-                name: `engineer${workerNumber}Id`
+                name: `engineerId`
             },
             {
                 type: 'input',
                 message: "Please enter your engineer's gitHub name.",
-                name: `engineer${workerNumber}Git`
+                name: `engineerGit`
             },
             {
                 type: 'input',
                 message: "Please enter your engineer's email address.",
-                name: `engineer${workerNumber}Email`
+                name: `engineerEmail`
             },
         ]).then(data => {
-            fs.appendFile(fileName, data, err => {
-                err ? console.log(new Error(err)) : console.log('Logged!');
-            })
-            workerNumber ++; 
+            let engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGit);
+            engineer = engineer.creteCard();
+            frends.push(engineer);
+
+            
             pathFinder();
         })
 }
@@ -100,28 +108,28 @@ const addIntern = () => {
             {
                 type: 'input',
                 message: "Please enter your intern's name.",
-                name: `intern${internNumber}Name`
+                name: `internName`
             },
             {
                 type: 'input',
                 message: "Please enter your intern's ID.",
-                name: `intern${internNumber}Id`
+                name: `internId`
             },
             {
                 type: 'input',
                 message: "Please enter your intern's School name.",
-                name: `intern${internNumber}School`
+                name: `internSchool`
             },
             {
                 type: 'input',
                 message: "Please enter your intern's email address.",
-                name: `intern${internNumber}Email`
+                name: `internEmail`
             },
         ]).then(data => {
-            fs.appendFile(fileName, data, err => {
-                err ? console.log(new Error(err)) : console.log('Logged!');
-            })
-            internNumber ++; 
+            let intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
+            intern = intern.createCard();
+            frends.push(intern);
+            
             pathFinder();
         })
 }
@@ -140,19 +148,44 @@ const wrapUp = () => {
                     .prompt(
                         {
                             type: 'list',
-                            message: 'Please select a color theme.'
+                            message: 'Please select a color theme.',
                             name: 'colorTheme',
                             choices: [
-                                "light mode",
-                                "dark mode",
-                                "evil mode"
+                                "light",
+                                "dark",
+                                "evil"
                             ]
                         }
                     ).then(data => {
-                        fs.appendFile(fileName, data, err => {
-                            err ? console.log(new Error(err)) : console.log('Alright, lets generate this...');
+
+                        let teamCards = '';
+                        frends.forEach(worker => {
+                            teamCards += (worker + '\n');
                         })
-                        generate();
+
+                        let html = `<!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <link rel="stylesheet" href="./assets/css/reset.css">
+                            <link rel="stylesheet" href="./assets/css/styles.css">
+                            <link rel="icon" href=''>
+                            <title>Team Generator</title>
+                        </head>
+                        <body class="${data.colorTheme}">
+                        <h1>Welcome! here is your new team.</h1>
+                        <div id="cardHolder">${teamCards}</div>
+                        </body>
+                        </html>
+                        `
+                        
+
+                        fs.appendFile('./dist/newTeam.html', html, err => {
+                            err ? console.log(new Error(err)) : console.log('Created!');
+                        })
+                        return;
                     })
             } else {
                 console.log("Heading back to team select.");
@@ -161,6 +194,5 @@ const wrapUp = () => {
         })
 }
 
-const generate = () => {
-    
-}
+
+startBuild();
