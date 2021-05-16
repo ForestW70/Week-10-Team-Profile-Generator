@@ -1,15 +1,17 @@
+// npm packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// new employee classes
 const Mgmt = require("./lib/mgmtClass");
 const Engineer = require("./lib/engineerClass");
 const Intern = require('./lib/internClass');
 
-let frends = []
-// let fileName = "";
-// let workerNumber = 1;
-// let internNumber = 1;
+// array to push created cards too.
+let frends = [];
 
+// start function, create manager from inputs, run create card function, then push the returned card into the frends array.
+// move to the pathfinder prompt to decide what next.
 const startBuild = () => {
     inquirer
         .prompt([
@@ -34,17 +36,15 @@ const startBuild = () => {
                 name: 'officeNumber'
             }
         ]).then(data => {
-            fileName = `${data.headName}s-Team.md`;
-
             let bossMan = new Mgmt(data.headName, data.headId, data.headEmail, data.officeNumber);
             bossMan = bossMan.createCard();
             frends.push(bossMan);
-
 
             pathFinder();
         })
 }
 
+// prompt that lets you choose who to add to your team next, or to finish building team.
 const pathFinder = () => {
     inquirer
         .prompt(
@@ -69,6 +69,7 @@ const pathFinder = () => {
         })
 }
 
+// Add engineer prompt, create new employee and push card.
 const addEngineer = () => {
     inquirer
         .prompt([
@@ -97,11 +98,11 @@ const addEngineer = () => {
             engineer = engineer.createCard();
             frends.push(engineer);
 
-
             pathFinder();
         })
 }
 
+// Add intern prompt, create new employee and push card.
 const addIntern = () => {
     inquirer
         .prompt([
@@ -134,6 +135,10 @@ const addIntern = () => {
         })
 }
 
+// final prompt to confirm you are done. if not, return to path finder. if so, select color theme and continue.
+// after color select, create empty string, then for each frend, push the created card into the new string,
+// then take html boilerplate code, insert in color theme class, and put all created cards inside of the body.
+// use the html variable as the data and push to new html document "new team".
 const wrapUp = () => {
     inquirer
         .prompt([
@@ -157,7 +162,6 @@ const wrapUp = () => {
                             ]
                         }
                     ).then(data => {
-
                         let teamCards = '';
                         frends.forEach(worker => {
                             teamCards += (worker + '\n');
@@ -181,8 +185,7 @@ const wrapUp = () => {
                         </div>
                         </body>
                         </html>
-                        `
-
+                        `;
 
                         fs.appendFile('./dist/newTeam.html', html, err => {
                             err ? console.log(new Error(err)) : console.log('Document created!');

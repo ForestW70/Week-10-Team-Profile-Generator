@@ -1,5 +1,11 @@
+// look at management class
 const Mgmt = require('../lib/mgmtClass');
 
+// test list for management classes.
+// 1. confirm the super method stores data to the parent class.
+// 2. confirm child class's getRoom function works.
+// 3. confirm get role function returns this workers correct role.
+// 4. confirm the createCard function returns an accurate card.
 describe("Mgmt", () => {
     describe("info via super", () => {
         it("should return the name, id, and email of the newly created head honcho.", () => {

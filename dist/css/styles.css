@@ -10,7 +10,6 @@ h1 {
     font-weight: 500;
 }
 
-
 .divider {
     display: block;
     text-align: center;
@@ -33,7 +32,6 @@ h1 {
     display: inline;
 }
 
-
 .mgmt {
     display: flex;
     flex-direction: row;
@@ -48,7 +46,6 @@ h1 {
     display: inline-block;
 }
 
-
 h2 {
     font-size: 30px;
     padding-bottom: 10px;
@@ -61,7 +58,6 @@ h3 {
     border-bottom: 1px solid grey;
 }
 
-
 .card-info {
     padding: 15px 0;
 }
@@ -71,6 +67,9 @@ h3 {
 }
 
 
+
+/* color themes */
+/* light */
 .light {
     background-color: #fff;
 }
@@ -84,7 +83,7 @@ h3 {
     color: black;
 }
 
-
+/* dark */
 .dark {
     background-color: black;
 }
@@ -103,9 +102,7 @@ h3 {
     color: rgb(87, 0, 82);
 }
 
-
-
-
+/* >:) */
 .evil {
     background-color: red;
 }
