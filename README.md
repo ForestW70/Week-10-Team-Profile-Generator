@@ -1,41 +1,22 @@
-# Forest Wilson - BoilerPlate
-${data.license} - ${userLicense} - For Good.
-
-
-## Table of Contents:
-- [Project description](#project-description)
-- [Usage instructions](#usage-instructions)
-- [Project installation](#project-installation)
-- [Additional comments](#additional-comments)
-- [Contribution information](#contribution-information)
-- [Questions](#questions-or-concerns)
-
+# Forest Wilson - hw10teamprofilegenerator
 
 ### About This Project
 * # Project description:
-  .
-  .
-  .
-
-* # Usage instructions
-  .
-  .
-  .
-
-
+  Welcome to this team profile generator for you to log your own and your teams information and create an html page that shows your entire team's information. After initialization, you will be prompted to enter your info, and then you may add as many engineers or interns as youd like. once you are finished adding your team, you will be asked to pick your color theme, and then an html page will be created to display your new team.
+  
 * # Project installation
-  .
-  .
-  .
- 
+  1. npm i
+  2. npm run test
+  3. npm run start
+
 * # Additional comments
-  .
-  .
-  .
+  - I appologize for the long demo video, didnt expect the email window to pop up tandem-page :/
 
+  - In the dist folder, there will be two page examples.
 
-#### Contribution information 
-- ${contribute}
+  - Instead of comments on all of the classes and tests, I have commented on the mgmt portions of both. comments carry over.
+
+  - No src folder, was unsure what that was for.
 
 
 ###### Questions or concerns? 
@@ -46,14 +27,28 @@ ${data.license} - ${userLicense} - For Good.
 
 # Extras
 * Screenshots:
-  ![App page desktop](path)
-  ![App desktop 2](path)
-  ![App page small](path)
-  ![App page phone](path)
-
+  ![App page desktop](./assets/gen-page.png)
+  
 * Demo:
-  [App demo](link)
+  [App demo](https://youtu.be/q5OVMxwlkuU)
 
 * Links:
-  [Repo page](link)
-  [Live site](link)
+  [Repo page](https://github.com/ForestW70/hw10teamprofilegenerator)
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
