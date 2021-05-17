@@ -36,19 +36,3 @@
   [Repo page](https://github.com/ForestW70/hw10teamprofilegenerator)
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
