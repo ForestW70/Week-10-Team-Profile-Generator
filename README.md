@@ -1,6 +1,28 @@
 # Forest Wilson - hw10teamprofilegenerator
+MIT - ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT) - For Good.
+<!-- Original deployment date: May 17th, 2021 -->
+
+## Table of Contents:
+- [Tech used](#tech-used)
+- [Project description](#project-description)
+- [Usage instructions](#usage-instructions)
+- [Project installation](#project-installation)
+- [Additional comments](#additional-comments)
+- [Contribution information](#contribution-information)
+- [Questions](#questions-or-concerns)
+- [Extras](#extras)
+
 
 ### About This Project
+
+* # Tech used:
+  1. CSS
+  2. JavaScript
+  3. Node.js
+  4. Npm
+  * - Inquirer
+    - Jest
+
 * # Project description:
   Welcome to this team profile generator for you to log your own and your teams information and create an html page that shows your entire team's information. After initialization, you will be prompted to enter your info, and then you may add as many engineers or interns as youd like. once you are finished adding your team, you will be asked to pick your color theme, and then an html page will be created to display your new team.
   
@@ -8,6 +30,7 @@
   1. npm i
   2. npm run test
   3. npm run start
+  4. Enjoy.
 
 * # Additional comments
   - I appologize for the long demo video, didnt expect the email window to pop up tandem-page :/
@@ -26,6 +49,7 @@
 
 
 # Extras
+
 * Screenshots:
   ![App page desktop](./assets/gen-page.png)
   
