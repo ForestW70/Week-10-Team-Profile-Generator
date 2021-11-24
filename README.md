@@ -66,6 +66,6 @@ MIT - ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https
   [App demo](https://youtu.be/q5OVMxwlkuU)
 
 * Links:
-  [Repo page](https://github.com/ForestW70/hw10teamprofilegenerator)
+  [Repo page](https://github.com/ForestW70/Week-10-Team-Profile-Generator)
   
 
